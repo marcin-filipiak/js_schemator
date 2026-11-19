@@ -57,7 +57,7 @@ export function initCanvas({ store, svg, wrap, statusCoords, toast, onDropDefini
     const world = toWorld(event.clientX, event.clientY);
     updateCoords(world);
 
-    if (event.button === 1 || (event.button === 0 && spaceDown)) {
+    if (event.button === 1 || (event.button === 0 && (spaceDown || store.settings.tool === 'pan'))) {
       event.preventDefault();
       capture(event);
       action = {
@@ -356,6 +356,7 @@ export function initCanvas({ store, svg, wrap, statusCoords, toast, onDropDefini
 
   /* ---------------- dwuklik: edycja etykiety ---------------- */
   svg.addEventListener('dblclick', (event) => {
+    if (store.settings.tool === 'pan') return;
     const instanceEl = event.target.closest?.('[data-instance]');
     if (!instanceEl) return;
     store.selectInstances([instanceEl.dataset.instance]);
@@ -438,10 +439,20 @@ export function initCanvas({ store, svg, wrap, statusCoords, toast, onDropDefini
   document.addEventListener('keyup', onKeyUp);
   window.addEventListener('blur', onBlur);
 
+  /* ---------------- narzędzie: zaznaczanie / przesuwanie ---------------- */
+  const syncTool = () => {
+    svg.classList.toggle('is-pan-tool', store.settings.tool === 'pan');
+  };
+  const offStore = store.on((reason) => {
+    if (reason === 'settings') syncTool();
+  });
+  syncTool();
+
   return {
     getLastWorld: () => lastWorld,
     destroy() {
       resizeObserver.disconnect();
+      offStore();
       document.removeEventListener('keydown', onKeyDown);
       document.removeEventListener('keyup', onKeyUp);
       window.removeEventListener('blur', onBlur);

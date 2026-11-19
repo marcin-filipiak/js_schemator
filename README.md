@@ -41,8 +41,8 @@ W prawym dolnym rogu paska statusu widnieje numer wersji, np. `wersja 1.3.0 · 1
 
 ## Najważniejsze funkcje
 
-- **Płótno schematu** — przesuwanie i skalowanie (kółko myszy, `Spacja` + przeciąganie, środkowy przycisk myszy), siatka, przyciąganie do siatki, dopasowanie widoku do zawartości.
-- **Biblioteka elementów** — 89 gotowych symboli w sekcjach: Pneumatyka (14, wg ISO 1219), Elektronika (39), Elektryka (18, wg PN-EN 60617), Hydraulika (17), Schemat blokowy (1). Sekcje są domyślnie zwinięte (rozwija je kliknięcie, a wyszukiwanie rozwija je automatycznie). Wyszukiwanie, miniatury, dodawanie kliknięciem lub przeciągnięciem na płótno.
+- **Płótno schematu** — przesuwanie i skalowanie (kółko myszy, `Spacja` + przeciąganie, środkowy przycisk myszy), siatka, przyciąganie do siatki, dopasowanie widoku do zawartości. W pasku nad płótnem przełączasz narzędzie: **myszka** (zaznaczanie i edycja, skrót `V`) lub **rączka** (przesuwanie widoku lewym przyciskiem, skrót `H`).
+- **Biblioteka elementów** — 93 gotowe symbole w sekcjach: Pneumatyka (15, wg ISO 1219), Elektronika (40), Elektryka (19, wg PN-EN 60617), Hydraulika (18), Schemat blokowy (1). Sekcje są domyślnie zwinięte (rozwija je kliknięcie, a wyszukiwanie rozwija je automatycznie). Wyszukiwanie, miniatury, dodawanie kliknięciem lub przeciągnięciem na płótno.
 - **Rozciąganie symboli** — rdzeń transformatora można wydłużać w pionie uchwytem na dolnym brzegu lub polem **Wysokość** w inspektorze (40–600 px). Wysokość jest zapisywana w instancji (`h`), więc po wczytaniu pliku pozostaje bez zmian.
 - **Schemat blokowy** — blok funkcjonalny ma 16 węzłów (po 4 na każdym boku). Jego etykieta jest treścią wpisaną w środku pola, a blok automatycznie dopasowuje szerokość i wysokość do tekstu. Połączenia sygnałowe mają groty strzałek wskazujące punkt docelowy.
 - **Własne elementy** — kreator rysowania z narzędziami: linia, prostokąt, elipsa, rysunek odręczny, tekst, gumka, zaznaczanie/przesuwanie. Definiowanie portów (medium, kierunek, identyfikator, pozycja, przyciąganie do krawędzi). Zapisz do „Moich elementów”, a później edytuj lub usuń.

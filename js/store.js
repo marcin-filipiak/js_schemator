@@ -19,7 +19,7 @@ class Store {
     this.viewport = { w: 900, h: 600 };
     this.selection = { instances: [], connections: [] };
     this.transient = {};
-    this.settings = { grid: true, snap: true, showPorts: true, theme: 'light' };
+    this.settings = { grid: true, snap: true, showPorts: true, theme: 'light', tool: 'select' };
     this.listeners = new Set();
     this.undoStack = [];
     this.redoStack = [];
@@ -206,6 +206,14 @@ class Store {
 
   setTheme(theme) {
     this.settings.theme = theme;
+    this.saveSettings();
+    this.emit('settings');
+  }
+
+  setTool(tool) {
+    const next = tool === 'pan' ? 'pan' : 'select';
+    if (this.settings.tool === next) return;
+    this.settings.tool = next;
     this.saveSettings();
     this.emit('settings');
   }

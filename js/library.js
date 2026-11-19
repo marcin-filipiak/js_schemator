@@ -276,6 +276,14 @@ export const BUILTIN_DEFINITIONS = {
     <path d="M9 21H5M41 21H45" ${S}/>
   `, [P('in_1', 25, 50, 'in')], { manufacturer: 'Festo', partNumber: 'MA-40' }),
 
+  PNEU_TEE: def('Trójnik', 'pneumatic', 40, 40, `
+    <path d="M0 20H40M20 20V40" ${S}/>
+  `, [
+    P('a', 0, 20),
+    P('b', 40, 20),
+    P('c', 20, 40)
+  ], { manufacturer: 'Festo', partNumber: 'QST-1/4' }),
+
   /* ---------------- Elektronika ---------------- */
   EL_RESISTOR: def('Rezystor', 'electronic', 60, 24, `
     <path d="M0 12H12L18 3L24 21L30 3L36 21L42 3L48 12H60" ${S}/>
@@ -284,6 +292,14 @@ export const BUILTIN_DEFINITIONS = {
   EL_CAPACITOR: def('Kondensator', 'electronic', 40, 40, `
     <path d="M0 20H14M26 20H40M14 8V32M26 8V32" ${S}/>
   `, [E('a', 0, 20), E('b', 40, 20)], { manufacturer: 'KEMET', partNumber: 'C-100N' }),
+
+  EL_TEE: def('Trójnik', 'electronic', 40, 40, `
+    <path d="M0 20H40M20 20V40" ${S}/>
+  `, [
+    E('a', 0, 20),
+    E('b', 40, 20),
+    E('c', 20, 40)
+  ]),
 
   EL_DIODE: def('Dioda', 'electronic', 50, 30, `
     <path d="M0 15H15M35 15H50" ${S}/>
@@ -379,10 +395,10 @@ export const BUILTIN_DEFINITIONS = {
   `, [E('anode', 0, 17, 'in'), E('cathode', 56, 17, 'out')], { manufacturer: 'ON Semi', partNumber: '1N4733' }),
 
   EL_CAPACITOR_POLARIZED: def('Kondensator spolaryzowany', 'electronic', 48, 44, `
-    <path d="M0 22H16M32 22H48" ${S}/>
+    <path d="M0 22H16M29 22H48" ${S}/>
     <path d="M16 10V34" ${S}/>
-    <path d="M32 10Q38 22 32 34" ${S}/>
-    <path d="M22 6H30M26 2V10" ${S}/>
+    <path d="M32 10Q26 22 32 34" ${S}/>
+    <path d="M4 7H12M8 3V11" ${S}/>
   `, [E('plus', 0, 22, 'in'), E('minus', 48, 22, 'out')], { manufacturer: 'Panasonic', partNumber: 'EEU-FR1V101' }),
 
   EL_POTENTIOMETER: def('Rezystor nastawny', 'electronic', 74, 54, `
@@ -785,6 +801,17 @@ export const BUILTIN_DEFINITIONS = {
     E('pe', 0, 54)
   ]),
 
+  /* Złączka WAGO (złączka instalacyjna, 3 tory). */
+  ELE_WAGO: def('Złączka WAGO', 'electrical', 56, 40, `
+    <rect x="12" y="10" width="32" height="20" rx="4" ${BOX}/>
+    <path d="M0 20H12M44 20H56M28 30V40" ${S}/>
+    <path d="M20 15V25M36 15V25" ${S}/>
+  `, [
+    E('a', 0, 20),
+    E('b', 56, 20),
+    E('c', 28, 40)
+  ], { manufacturer: 'WAGO', partNumber: '221-413' }),
+
   /* ---------------- Hydraulika ---------------- */
   HYD_PRESSURE_SWITCH: def('Włącznik ciśnieniowy', 'hydraulic', 70, 40, `
     <path d="M0 20H16M44 12H70M44 28H70" ${S}/>
@@ -895,6 +922,14 @@ export const BUILTIN_DEFINITIONS = {
     H('in', 0, 20, 'in'),
     H('out', 40, 20, 'out')
   ], { manufacturer: 'Swagelok', partNumber: 'SS-400-6' }),
+
+  HYD_TEE: def('Trójnik', 'hydraulic', 40, 40, `
+    <path d="M0 20H40M20 20V40" ${S}/>
+  `, [
+    H('a', 0, 20),
+    H('b', 40, 20),
+    H('c', 20, 40)
+  ], { manufacturer: 'Swagelok', partNumber: 'SS-400-3' }),
 
   HYD_BUFFER_TANK: def('Zbiornik buforowy', 'hydraulic', 80, 50, `
     <rect x="6" y="10" width="68" height="30" ${BOX}/>

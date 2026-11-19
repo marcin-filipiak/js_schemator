@@ -285,6 +285,8 @@ export function initUI({ store, actions }) {
         `<kbd>Ctrl Z</kbd><span>Cofnij</span>` +
         `<kbd>Ctrl S</kbd><span>Zapisz JSON</span>` +
         `<kbd>Spacja</kbd><span>Przesuń widok</span>` +
+        `<kbd>V</kbd><span>Narzędzie: zaznaczanie</span>` +
+        `<kbd>H</kbd><span>Narzędzie: przesuwanie</span>` +
         `<kbd>0</kbd><span>Dopasuj widok</span>` +
       `</div></div>`
     );
@@ -380,6 +382,8 @@ export function initUI({ store, actions }) {
   bind('btn-grid', () => store.toggleSetting('grid'));
   bind('btn-snap', () => store.toggleSetting('snap'));
   bind('btn-ports', () => store.toggleSetting('showPorts'));
+  bind('btn-tool-select', () => store.setTool('select'));
+  bind('btn-tool-pan', () => store.setTool('pan'));
 
   const fileInput = $('file-open');
   fileInput?.addEventListener('change', () => {
@@ -406,6 +410,9 @@ export function initUI({ store, actions }) {
     $('btn-grid')?.classList.toggle('is-active', store.settings.grid);
     $('btn-snap')?.classList.toggle('is-active', store.settings.snap);
     $('btn-ports')?.classList.toggle('is-active', store.settings.showPorts);
+    const tool = store.settings.tool === 'pan' ? 'pan' : 'select';
+    $('btn-tool-select')?.classList.toggle('is-active', tool === 'select');
+    $('btn-tool-pan')?.classList.toggle('is-active', tool === 'pan');
     const themeBtn = $('btn-theme');
     if (themeBtn) {
       themeBtn.innerHTML = `<svg class="icon"><use href="#${store.settings.theme === 'dark' ? 'i-sun' : 'i-moon'}"/></svg>`;
@@ -450,6 +457,8 @@ export function initUI({ store, actions }) {
       actions.rotateSelection();
       return;
     }
+    if (!mod && key === 'v') { store.setTool('select'); return; }
+    if (!mod && key === 'h') { store.setTool('pan'); return; }
     if (key === '0') {
       store.fitView();
       return;

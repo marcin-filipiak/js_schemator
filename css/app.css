@@ -312,8 +312,13 @@ html[data-theme="dark"] .icon-btn.is-active { color: var(--accent); }
   user-select: none;
   cursor: default;
 }
-.canvas.is-panning { cursor: grabbing; }
 .canvas.is-space { cursor: grab; }
+.canvas.is-pan-tool { cursor: grab; }
+.canvas.is-pan-tool .world .instance,
+.canvas.is-pan-tool .world .wire-hit { cursor: grab; }
+.canvas.is-panning { cursor: grabbing; }
+.canvas.is-panning .world .instance,
+.canvas.is-panning .world .wire-hit { cursor: grabbing; }
 
 .world .wire-hit { cursor: pointer; }
 .world .instance { cursor: move; }
