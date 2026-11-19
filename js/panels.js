@@ -374,7 +374,6 @@ export function initUI({ store, actions }) {
     store.setTheme(next);
   });
   bind('btn-new-component', () => actions.newComponent());
-  bind('btn-load-demo', () => actions.loadDemo());
   bind('btn-zoom-in', () => store.zoomBy(1.2));
   bind('btn-zoom-out', () => store.zoomBy(1 / 1.2));
   bind('btn-fit', () => store.fitView());

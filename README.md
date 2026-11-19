@@ -2,6 +2,8 @@
 
 Lekki edytor schematów działający w przeglądarce — napisany w czystym JavaScripcie (ES modules), bez frameworków i bez etapu budowania. Pozwala rysować własne symbole, definiować porty, łączyć elementy i zapisywać całą pracę do pliku JSON, który po ponownym wczytaniu pozostaje w pełni edytowalny.
 
+**Autor:** Marcin Filipiak · **Repozytorium:** <https://github.com/marcin-filipiak/js_schemator>
+
 ![Schemat pneumatyczny w Schematorze](docs/screenshot.jpg)
 
 ## Uruchomienie
@@ -51,7 +53,7 @@ W prawym dolnym rogu paska statusu widnieje numer wersji, np. `wersja 1.3.0 · 1
 - **Edycja instancji** — etykieta, pozycja X/Y, obrót w krokach 90°, duplikowanie, usuwanie, przesuwanie strzałkami.
 - **Undo/redo** — dla operacji na schemacie i w kreatorze elementów.
 - **Zapis i odczyt** — pobieranie schematu jako JSON, wczytywanie pliku JSON (także przez upuszczenie na płótno), eksport do samodzielnego pliku SVG.
-- **Autozapis** — bieżący schemat i ustawienia są zapisywane w `localStorage`; po odświeżeniu strona wraca do ostatniego stanu. Wyjątkiem jest wbudowany przykład: aplikacja startuje z czystym płótnem, a schemat przykładowy wczytuje się przyciskiem **Wczytaj przykład**.
+- **Autozapis** — bieżący schemat i ustawienia są zapisywane w `localStorage`; po odświeżeniu strona wraca do ostatniego stanu.
 - **Motyw jasny/ciemny** oraz responsywny układ paneli.
 
 ## Sterowanie

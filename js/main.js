@@ -177,17 +177,6 @@ const actions = {
     toast('Utworzono nowy schemat.', 'ok');
   },
 
-  loadDemo() {
-    if (store.doc.instances.length || store.doc.connections.length) {
-      const ok = window.confirm('Wczytać przykładowy schemat? Bieżąca praca zostanie zastąpiona.');
-      if (!ok) return;
-    }
-    const { doc } = normalizeDoc(createDemoDoc());
-    store.setDoc(doc);
-    requestAnimationFrame(() => store.fitView());
-    toast('Wczytano przykładowy schemat pneumatyczny.', 'ok');
-  },
-
   openDialog() {
     document.getElementById('file-open')?.click();
   },

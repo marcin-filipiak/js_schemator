@@ -288,6 +288,20 @@ html[data-theme="dark"] .icon-btn.is-active { color: var(--accent); }
 }
 
 .panel-foot { padding: 10px 12px; border-top: 1px solid var(--border); }
+.credit { margin: 0 0 4px; color: var(--muted); font-size: 12px; }
+.credit strong { color: var(--text); font-weight: 600; }
+.credit-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--accent);
+  font-size: 12px;
+  text-decoration: none;
+  border-radius: 4px;
+}
+.credit-link .icon { width: 15px; height: 15px; }
+.credit-link:hover,
+.credit-link:focus-visible { text-decoration: underline; }
 
 /* ---------- Canvas ---------- */
 .canvas-area {
